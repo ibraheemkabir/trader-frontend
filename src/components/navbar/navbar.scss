@@ -1,0 +1,37 @@
+.nav-container{
+    color: white;
+    width: auto;
+    background-color: #01102e;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 20px;
+    font-size: 0.95rem;
+    font-family: 'poppins','HelveticaNeue','Helvetica Neue','Helvetica-Neue',Helvetica,Arial,sans-serif;
+}
+
+.auth-section{
+    display: flex;
+    justify-content: space-around;
+    padding: auto;
+    width: auto;
+    font-size: 12px;
+    vertical-align: text-bottom;
+    margin: 5px 0px 0px auto;
+}
+
+.logo{
+    color: #ec153f;
+    font-weight: bold;
+    letter-spacing: 0.2px;
+}
+
+.sideLinks{
+    cursor: pointer;
+    font-weight: 300;
+    width: auto;
+}
+
+.logo-link{
+    color: #ec153f;
+    text-decoration: none
+}

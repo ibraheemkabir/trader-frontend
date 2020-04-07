@@ -1,0 +1,56 @@
+.buy-container{
+    box-shadow: 0 2px 34px -6px rgba(1, 16, 46, 0.29);
+    min-width: 40%;
+    width: 100%;
+    font-family: roboto;
+}
+
+.dividerContainer{
+    margin: 0px 0px 0px auto;
+    display: flex;
+    justify-content: start;
+    padding-left: 6%;
+    opacity: 0.1;
+}
+
+.TabdividerContainer{
+    margin: 0px 0px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.btnContainer{
+    padding: 16px;
+}
+
+.tabs{
+    display: flex;
+    margin-bottom: 1.3rem;
+    p{
+        font-family: roboto;
+
+        padding: 8px;
+        font-size: 0.8rem;
+        margin-top: 0;
+        margin-bottom: 0;
+        width: 50%;
+        text-align: center;
+    }
+}
+
+.btnDivider{
+    border-radius: 0;
+    border-color: #01102e29;
+    border-width: 0.5px;
+    border-style: solid;
+    background-color: '#ecf3fe';
+    border-bottom-width: 0;
+    width: 0%;
+    height: 15px;
+    padding: 8px 0px;
+    margin: 0px
+}
+
+.inActive{
+    opacity:0.3
+}
