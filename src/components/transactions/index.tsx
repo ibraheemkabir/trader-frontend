@@ -25,10 +25,13 @@ export function TransactionTile(props:any) {
             }
         </div>
              {adverts.map((e:any)=> 
-             <Link to='/transaction' className="moreTransactions">
+             <Link to={`/transaction/${e._id}`} className="moreTransactions">
                 <div key={e._id} style={{...styles.Container,...styles.content}}>
-                    <div style={{...styles.flexItem,...styles.details}}>{e.user_id}</div>
-                    <div style={{...styles.flexItem,...styles.details}}>{'test'}</div>
+                    <div style={{...styles.flexItem,...styles.details}}>
+                        {e.userdetails[0].name}
+                        <p>Seller Rating : {e.userdetails[0].Reputation.stars}</p>
+                    </div>
+                    <div style={{...styles.flexItem,...styles.details}}>{e.accepted[0]}</div>
                     <div style={{...styles.flexItem,...styles.details}}>{`${e.amount} ${e.from_cur} / ${e.price} ${e.to_cur}`}</div>
                     <div style={{...styles.flexItem,...styles.details}}>{e.amount}</div>
                 </div>
@@ -71,7 +74,8 @@ const themedStyles = function (theme:any) {
             flex:1,
             fontSize: '11px',
             fontWeight: 700,
-            padding:'2px'
+            padding:'2px',
+            textAlign:'center' as "center"
         },
         details:{
             flex:1,

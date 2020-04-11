@@ -1,7 +1,9 @@
-
+import { toast } from 'react-toastify';
 
 export const userLogin = async (url = '', data) => {
     // Default options are marked with *
+    let toastId = null;
+
     const response = await fetch(url, {
       method: 'POST', // *GET, POST, PUT, DELETE, etc.
       headers: {
@@ -11,7 +13,7 @@ export const userLogin = async (url = '', data) => {
       },
       redirect: 'follow', // manual, *follow, error
       referrerPolicy: 'no-referrer', // no-referrer, *client
-      body: JSON.stringify(data) // body data type must match "Content-Type" header
+      body: JSON.stringify(data)
     });
     const res = await response;
     console.log(res)

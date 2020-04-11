@@ -5,13 +5,15 @@ import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 import { RootState } from '../../redux/index';
 import { loginUser } from './../../redux/modules/user';
-import { getAllAds } from './../../redux/modules/ads';
+import { getAllAds,addAd } from './../../redux/modules/ads';
 import {Navbar} from './../../components/navbar';
 import {BuyContainer} from './../../components/buy';
-import {TransactionTile} from '../../components/transactions/index'
+import {TransactionTile} from '../../components/transactions/index';
+import 'react-toastify/dist/ReactToastify.css';
+
 const {ThemedButton,InputGroupAddon,Row,ListItem,ThemedText} = require('unifyre-web-wallet-components');
 
-class Dashboard extends React.Component<{loginUser:any,user:any,history:any,getAllAds: any,ads:any}>{
+class Dashboard extends React.Component<{loginUser:any,user:any,history:any,getAllAds: any,ads:any,addAd:any}>{
   state = { 
     user: null,
     ads: null, 
@@ -33,7 +35,7 @@ class Dashboard extends React.Component<{loginUser:any,user:any,history:any,getA
       <>
       <Navbar user={this.props}/>
         <div className="estimate-container">
-          <BuyContainer/> 
+          <BuyContainer ad={this.props.addAd}/> 
         </div>
         <div className="App">
           <p>Trending Sales</p>
@@ -57,7 +59,8 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
   return bindActionCreators(
     {
       loginUser,
-      getAllAds
+      getAllAds,
+      addAd
     },
     dispatch
   );

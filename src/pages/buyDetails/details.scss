@@ -48,12 +48,13 @@
     display: flow-root;
     justify-content: space-between;
     padding-top: 0px;
+    margin: 10% 0%;
     .labels{
         flex: 1 1;
         font-weight: 600;
         font-size: 10px;
         letter-spacing: 1px;
-        margin-bottom: 0px;
+        margin-bottom: 5px;
     }
     .values{
         font-size: 13px;

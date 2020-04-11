@@ -12,18 +12,13 @@ class BuyDetails extends React.Component<{loginUser:any,user:any,history:any}>{
     ads: null, 
   };
 
-  handleLogin = async () => {
-    await this.props.loginUser();
-    if(this.props.user.name!=''){
-      this.props.history.push('/')
-    }
-  }
-
   render(){
+      const {user} = this.props;
     return (
       <>
-      <Navbar/>
-        <div className="transactionContainer">
+      <Navbar user={this.props}/>
+        <div className="transactionContainer profile">
+            <p></p>
             <div className="headerText">
                 User Profile
             </div> 
@@ -35,15 +30,7 @@ class BuyDetails extends React.Component<{loginUser:any,user:any,history:any}>{
                             Name
                         </div>
                         <div className="value">
-                            Ibraheem Kabir A
-                        </div>
-                        </div>  
-                        <div className="details-container">
-                        <div className="label">
-                            Verified Details
-                        </div>
-                        <div className="value">
-                                0.2ETH
+                            {user.name}
                         </div>
                     </div>  
                     <div className="details-container">
@@ -51,7 +38,7 @@ class BuyDetails extends React.Component<{loginUser:any,user:any,history:any}>{
                         Verified PhoneNumer
                     </div>
                     <div className="value">
-                        NGN
+                        {`${user.zip}${user.phoneNumber}`}
                     </div>
                     </div>
                     <div className="details-container">
@@ -59,52 +46,41 @@ class BuyDetails extends React.Component<{loginUser:any,user:any,history:any}>{
                         Wallet Address
                     </div>
                     <div className="value edit">
-                            <p>12x22223766789499</p>
+                        <p>{user.wallet_Address}</p>
                     </div>
                     </div>
-                </div>
-                <div className="trasactionDetails">
-                <div className="transactionFields">
                     <div className="details-container">
                         <div className="label">
                             Country
                         </div>
                         <div className="value">
-                            Nigeria
+                            {user.country}
                         </div>
                     </div>
-                </div>
-                
-                <div className="transactionFields">
                     <div className="details-container">
                         <div className="label">
                             City
                         </div>
                         <div className="value">
-                            <p>Lagos</p>
+                            <p>{user.city}</p>
                         </div>
                     </div>
-                </div>
-                <div className="transactionFields">
                     <div className="details-container">
                         <div className="label">
                             Payment Method
                         </div>
                         <div className="value">
-                            Bank Transfer
+                            {user.accepted[0]}
                         </div>
                     </div>
                 </div>
-                <div className="transactionFields">
-                    <div className="details-container">
-                        <div className="label">
-                            Seller Feedback Score
-                        </div>
-                        <div className="value">
-                            55%
-                        </div>
+                <div className="details-container headers">
+                    <div className="label">
+                        Transaction History Details
                     </div>
                 </div>
+                <div className="trasactionDetails">
+
                 <div className="transactionFields">
                     <div className="details-container">
                         <div className="label">
@@ -156,8 +132,6 @@ class BuyDetails extends React.Component<{loginUser:any,user:any,history:any}>{
             </div>
             <p></p>
         </div>
-       
-        <div className="App">          </div>
       </>
     );
   }

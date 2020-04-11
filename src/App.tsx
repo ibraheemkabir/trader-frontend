@@ -4,7 +4,11 @@ import Dashboard from './pages/home/home';
 import Home from './pages/dashboard/dashboard';
 import Buydetails from './pages/buyDetails';
 import Profile from './pages/profile';
-import Transacctions from './pages/advertisements';
+import Transactions from './pages/advertisements';
+import UserTransactions from './pages/userTransactions';
+import ManageTransactions from './pages/transactionDetails';
+
+import { ToastContainer, toast } from 'react-toastify';
 
 import createBrowserHistory from 'history/createBrowserHistory'
 
@@ -18,10 +22,13 @@ class App extends React.Component {
             <Switch>
                 <Route exact path='/' component={Dashboard} />
                 <Route path='/dashboard' component={Home} />
-                <Route path='/transaction' component={Buydetails}/>
-                <Route path='/alltransactions' component={Transacctions}/>
+                <Route path='/transaction/:id' component={Buydetails}/>
+                <Route path='/alltransactions' component={Transactions}/>
                 <Route path='/profile/:userId' component={Profile}/>
+                <Route path='/myTransactions' component={UserTransactions}/>
+                <Route path='/manageTransaction/:id' component={ManageTransactions}/>
             </Switch>
+            <ToastContainer />
           </div>
       </Router>
     );

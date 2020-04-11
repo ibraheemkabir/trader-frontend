@@ -14,7 +14,13 @@ export interface userDetailsType {
     "loading": boolean
 }
 
+export interface transactionsType{
+    
+}
+
 export interface adsType {
     "ads": [],
-    "loading": boolean
+    "loading": boolean,
+    "ad": {},
+    "adloading": boolean
 }

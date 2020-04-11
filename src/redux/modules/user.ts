@@ -43,16 +43,15 @@ export const loading = () => {
 };
 
 export function loginUser() {
-  console.log('helloooo');
   return async (dispatch: Dispatch<AnyAction>) => {
     dispatch({
       type: 'user/LOADING',
     })
-    await userLogin('http://localhost:3000/login', userData)
+    await userLogin('http://localhost:3004/login', userData)
       .then(async (data) => 
         dispatch({
           type: 'user/LOGIN',
-          payload: data.body
+          payload: data.response
         }),
       ).then(()=>history.push('./'))
   }
@@ -98,6 +97,7 @@ export function userReducer(
     break
     case 'user/LOGIN':
       return { 
+        ...action.payload,
         name: action.payload.name,
         email: action.payload.email,
         _id: action.payload._id,

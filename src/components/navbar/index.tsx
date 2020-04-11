@@ -3,7 +3,6 @@ import './navbar.scss';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 export const Navbar = (props:any) => {
-    console.log(props,'===<>==')
     return(
         <div className="nav-container sideLinks">
             <p className="logo">
@@ -23,8 +22,8 @@ export const Navbar = (props:any) => {
                     </>
                     :
                     <> 
-                    <p className="sideLinks">
-                       Hello <Link to='/profile/:35'>{props.user.user.name}</Link>
+                    <p className="sideLinks profile">
+                       Hello <Link to='/profile'>{props.user.user.name}</Link>
                     </p>
                     </>
                 }
