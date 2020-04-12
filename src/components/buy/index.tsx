@@ -42,11 +42,11 @@ export function BuyContainer (props:any){
             {
                 active ?
                 <>
-                <InputGroupAddon placeholder={'0.001'} fieldlabel={'Amount to buy'}/>
+                <InputGroupAddon placeholder={'0.001'} fieldlabel={'Amount to buy'} options={[{value: 1, label: 'BTC'}, {value: 2, label:'ETH'}]}/>
                 <div className="dividerContainer">
                     <Divider Gap={'big'}/>
                 </div>
-                <InputGroupAddon placeholder={'0.001'} fieldlabel={'Estimated Cost'}/>
+                <InputGroupAddon placeholder={'0.001'} fieldlabel={'Estimated Cost'} options={[{value: 1, label: 'NGN'}, {value: 2, label:'EUR'}]}/>
                 <div className="dividerContainer">
                     <Divider Gap={'big'}/>
                 </div>
@@ -57,21 +57,21 @@ export function BuyContainer (props:any){
                 </>
                 : 
                 <>
-                    <InputGroupAddon placeholder={'0.001'} fieldlabel={'Amount to Sell'}/>
+                    <InputGroupAddon placeholder={'0.001'} fieldlabel={'Amount to Sell'} options={[{value: 1, label: 'BTC'}, {value: 2, label:'ETH'}]}/>
                     <div className="dividerContainer">
                         <Divider Gap={'big'}/>
                     </div>
-                    <InputGroupAddon placeholder={'0.001'} fieldlabel={'Estimated Cost'}/>
+                    <InputGroupAddon placeholder={'0.001'} fieldlabel={'Estimated Cost'} options={[{value: 1, label: 'EUR'}, {value: 2, label:'NGN'}]}/>
                     <div className="dividerContainer">
                         <Divider Gap={'big'}/>
                     </div>
-                    <InputGroupAddon placeholder={'0.001'} fieldlabel={'Minimum Voleme available per trade'}/>
+                    <InputGroupAddon placeholder={'0.001'} fieldlabel={'Minimum Volume available per trade'} options={[{value: 1, label: 'BTC'}, {value: 2, label:'ETH'}]}/>
                     <div className="dividerContainer">
                         <Divider Gap={'big'}/>
                     </div>
                     <SelectGroupAddon placeholder={'Paypal'} fieldlabel={'Preferred Payment Option'}/>
                     <div className="btnContainer">
-                        <ThemedButton onPress={()=>handlePostAd()} text={'Post advert'} type='primary'/>
+                        <ThemedButton onPress={()=>handlePostAd()} text={'Post Trade Advert'} type='primary'/>
                     </div>
                 </>
             }

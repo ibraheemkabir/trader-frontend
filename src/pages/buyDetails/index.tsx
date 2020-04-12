@@ -53,10 +53,13 @@ class BuyDetails extends React.Component<{makeRequest:any,user:any,history:any,a
       "trader_id":ad.userdetails[0].id,
       "transaction_id":ad._id,
       "buyer_id":user._id,
-      "status": "awaiting trader response",
+      "status": 1,
+      "stage": "awaiting trader response",
       "completed": false,
-      "type": "buy"
+      "type": "buy",
+      "amount": this.state.amount
     }
+
     await this.props.makeRequest(data)
     this.props.history.push("/myTransactions");
   }
@@ -148,7 +151,7 @@ class BuyDetails extends React.Component<{makeRequest:any,user:any,history:any,a
                     </div>
                 </div> 
             </div>
-            <InputGroupAddon placeholder={'0.001'} value={ad.amount} onKeyUp={this.handleTextChange} fieldlabel={'Amount to buy'}/>
+            <InputGroupAddon placeholder={'0.001'} value={ad.amount} onKeyUp={this.handleTextChange} fieldlabel={'Amount to buy'} options={[{value: 1, label: 'BTC'}, {value: 2, label:'ETH'}]}/>
             <p></p>
               <ThemedButton 
                 text={'Make request'} 

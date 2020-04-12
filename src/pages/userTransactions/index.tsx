@@ -30,9 +30,6 @@ class BuyDetails extends React.Component<{getUserTransactions:any,user:any,histo
       this.props.getUserTransactions(this.props.user._id)
   }
 
-  handlereq(){
-    console.log(this.props.transactions.transaction)
-  }
 
   render(){
     const {loading,transactions} = this.props.transactions;
@@ -60,10 +57,10 @@ class BuyDetails extends React.Component<{getUserTransactions:any,user:any,histo
                                 {
                                     <>
                                       <div className="label">
-                                          Purchase of {e.transactiondetails[0].amount} {e.transactiondetails[0].from_cur} from {e.userdetails[0].name}
+                                          Purchase of {e.amount} {e.transactiondetails[0].from_cur} from {e.userdetails[0].name}
                                       </div>
                                       <div className="value">
-                                          <ThemedButton text={'Pending'} onPress={this.handlereq} type={'highlight'}/>  
+                                          <ThemedButton text={'Pending'} onPress={()=>{}} type={'highlight'}/>  
                                       </div>
                                     </>
                                 }

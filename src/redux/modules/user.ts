@@ -42,12 +42,12 @@ export const loading = () => {
   return typedAction('user/LOADING');
 };
 
-export function loginUser() {
+export function loginUser(id:any) {
   return async (dispatch: Dispatch<AnyAction>) => {
     dispatch({
       type: 'user/LOADING',
     })
-    await userLogin('http://localhost:3004/login', userData)
+    await userLogin(`http://localhost:3005/login?id=${id}`, userData)
       .then(async (data) => 
         dispatch({
           type: 'user/LOGIN',
@@ -108,6 +108,7 @@ export function userReducer(
         zip: action.payload.zip,
         city: action.payload.city,
         id: action.payload.id,
+        advertiser: action.payload.advertiser,
         loading: false
       };
     case 'user/LOGOUT':

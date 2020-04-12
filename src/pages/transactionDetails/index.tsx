@@ -4,11 +4,14 @@ import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 import { RootState } from '../../redux/index';
 import { loginUser } from './../../redux/modules/user';
-import { getTransaction, transactionsFailure } from './../../redux/modules/transactions';
+import { getTransaction, traderUpdateTransaction } from './../../redux/modules/transactions';
 import {Navbar} from './../../components/navbar';
 const {ThemedButton} = require('unifyre-web-wallet-components');
 
-class BuyDetails extends React.Component<{getTransaction:any,user:any,match:any,history:any,transactions:any,location:any}>{
+class BuyDetails extends React.Component<{
+    getTransaction:any,user:any,
+    match:any,history:any,transactions:any,
+    location:any,traderUpdateTransaction:any}>{
   state = { 
     user: null,
     ads: null, 
@@ -40,7 +43,7 @@ class BuyDetails extends React.Component<{getTransaction:any,user:any,match:any,
   render(){
       const {user} = this.props;
       const transactions = this.props.location.state.details;
-
+    console.log(user,'00998484848')
     return (
       <>
       <Navbar user={this.props}/>
@@ -75,6 +78,60 @@ class BuyDetails extends React.Component<{getTransaction:any,user:any,match:any,
                         </div>
                     </div>  
                 </div>
+                {
+                    (transactions.status === 3 && !user?.advertiser) &&
+                    (
+                        <>
+                        <div className="details-container headers">
+                            <div className="label">
+                                Trader Contact Details
+                            </div>
+                        </div>
+                         <div className="userDetails">
+                         <div className="details-container">
+                             <div className="label">
+                                name
+                             </div>
+                             <div className="value">
+                                 {transactions.userdetails[0].name}
+                             </div>
+                         </div>  
+                         <div className="details-container">
+                             <div className="label">
+                                 email
+                             </div>
+                             <div className="value">
+                                {transactions.userdetails[0].email}
+                             </div>
+                         </div>
+                         <div className="details-container">
+                             <div className="label">
+                                 whatsapp
+                             </div>
+                             <div className="value">
+                                {transactions.userdetails[0].whatsapp}
+                             </div>
+                         </div>
+                         <div className="details-container">
+                             <div className="label">
+                                 telegram
+                             </div>
+                             <div className="value">
+                                {transactions.userdetails[0].telegram}
+                             </div>
+                         </div>
+                         <div className="details-container">
+                             <div className="label">
+                                 zip
+                             </div>
+                             <div className="value">
+                                {transactions.userdetails[0].zip}
+                             </div>
+                         </div>
+                        </div>
+                        </>
+                    )
+                }
                 <div className="details-container headers">
                     <div className="label">
                         Action Items
@@ -85,11 +142,24 @@ class BuyDetails extends React.Component<{getTransaction:any,user:any,match:any,
             </div>
             }
             <p>
+                {
+                    (transactions.status === 3 && !user?.advertiser) &&
+                    <ThemedButton text={'Upload Payment Evidence'} onPress={()=>{}} type={'primary'}/>  
+                }
+            </p>
+            <p>
+                {
+                    (transactions.status === 1 && user?.advertiser) &&
+                    <ThemedButton text={'Approve Request'} onPress={()=>{}} type={'primary'}/>  
+                }
+            </p>
+            <p>
                 <ThemedButton text={'Raise Report'} onPress={()=>{}} type={'primary'}/>  
             </p>
             <div>
-                <ThemedButton text={'Cancel Request'} onPress={()=>{}} type={'highlight'}/>  
+                <ThemedButton text={'Cancel Request'} onPress={()=>this.props.traderUpdateTransaction(transactions._id)} type={'highlight'}/>  
             </div>
+            <p></p>
         </div>
       </>
     );
@@ -105,7 +175,8 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
   return bindActionCreators(
     {
       loginUser,
-      getTransaction
+      getTransaction,
+      traderUpdateTransaction
     },
     dispatch
   );

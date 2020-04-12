@@ -42,7 +42,7 @@ export function addAd(data:any) {
       type: 'ad/LOADING',
     })
     try{
-      await getAds('http://localhost:3004/postAd', data)
+      await getAds('http://localhost:3005/postAd', data)
       .then(async (data:any) => {
       
       }).then(async ()=> {
@@ -64,7 +64,7 @@ export function getAllAds() {
       type: 'ads/LOADING',
     })
     try{
-    await getAds('http://localhost:3004/ads', userData)
+    await getAds('http://localhost:3005/ads', userData)
       .then(async (data) => {
         return dispatch({
           type: 'ads/SUCCESS',
@@ -88,13 +88,14 @@ export function getAd(id:any) {
       type: 'ad/LOADING',
     })
     try{
-    await getAds(`http://localhost:3004/getAd?id=${id}`, {})
-      .then(async (data) => 
-        dispatch({
-          type: 'ad/SUCCESS',
-          payload: data.response
-        }),
-      )
+      await getAds(`http://localhost:3005/getAd?id=${id}`, {})
+        .then(async (data) => 
+          dispatch({
+            type: 'ad/SUCCESS',
+            payload: data.response
+          }),
+        )
+      return
     }catch(e){
       console.log(e)
         dispatch({
@@ -111,7 +112,7 @@ export function getUserTransactions(id:any) {
       type: 'transaction/LOADING',
     })
     try{
-    await getAds(`http://localhost:3004/getTransactions?id=${id}`, {})
+    await getAds(`http://localhost:3005/getTransactions?id=${id}`, {})
       .then(async (data) => 
         dispatch({
           type: 'transaction/SUCCESS',

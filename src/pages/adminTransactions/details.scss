@@ -1,4 +1,4 @@
-.usertransaction{
+.tradertransaction{
     .detailText{
     width: 60%;
     font-weight: 700;
@@ -12,7 +12,7 @@
 
 .headerText{
     text-align: start;
-    font-size: 18px;
+    font-size: 15px;
     margin: 0px 3%;
     font-weight: 600;
 }
@@ -66,10 +66,9 @@ a{
 
     &.headers{
         padding: 0px;
-        margin-top: 20px;
         .label{
             width: 100%;
-            padding: 10px 0px;
+            padding: 5px 0px;
             text-align: start;
         }
     }

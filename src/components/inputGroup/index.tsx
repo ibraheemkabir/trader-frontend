@@ -6,7 +6,7 @@ import { getRenderedResource } from 'unifyre-native-assets'
 import {Divider} from './../divider';
 import Dropdown from './../dropdown'
 
-export function InputGroupAddon({placeholder='',fieldlabel='',editable=true,value=0,...props}) {
+export function InputGroupAddon({placeholder='',fieldlabel='',editable=true,value=0,options=[{}],...props}) {
 
     const theme = useContext(ThemeContext);
     const styles = themedStyles(theme);
@@ -32,7 +32,7 @@ export function InputGroupAddon({placeholder='',fieldlabel='',editable=true,valu
             </div>
             <div style={styles.dropdownContainer}>
                 <Dropdown 
-                list={[{value: 1, label: 'BTC'}, {value: 2, label:'ETH'}]} 
+                list={options} 
                 caret={false}/>   
             </div>
         </div>

@@ -7,6 +7,7 @@ import Profile from './pages/profile';
 import Transactions from './pages/advertisements';
 import UserTransactions from './pages/userTransactions';
 import ManageTransactions from './pages/transactionDetails';
+import TraderTransactions from './pages/adminTransactions';
 
 import { ToastContainer, toast } from 'react-toastify';
 
@@ -24,9 +25,10 @@ class App extends React.Component {
                 <Route path='/dashboard' component={Home} />
                 <Route path='/transaction/:id' component={Buydetails}/>
                 <Route path='/alltransactions' component={Transactions}/>
-                <Route path='/profile/:userId' component={Profile}/>
+                <Route path='/profile' component={Profile}/>
                 <Route path='/myTransactions' component={UserTransactions}/>
                 <Route path='/manageTransaction/:id' component={ManageTransactions}/>
+                <Route path='/traderTransactions' component={TraderTransactions}/>
             </Switch>
             <ToastContainer />
           </div>
