@@ -17,7 +17,7 @@ export const Navbar = (props:any) => {
         }, [])
     
     return(
-        <div className="nav-container sideLinks">
+        <div className="nav-container sideLinks" onClick={()=>props.handleSideBar()}>
             <p className="logo">
                <Link to={"/dashboard"} className="logo-link"> LOCALBIT </Link>
             </p>

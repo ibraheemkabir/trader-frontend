@@ -28,7 +28,7 @@ class BuyDetails extends React.Component<{getUserTransactions:any,user:any,getRe
       case 2:
           return response = 'Awaiting Crypto Escrow Confirmation'
       case 3:
-          return response = 'Awaiting Transaction response from buyer'
+          return response = 'Awaiting Payment Confirmation from buyer'
       case 4:
           return response = 'awaiting  response'
       default:
@@ -56,7 +56,6 @@ class BuyDetails extends React.Component<{getUserTransactions:any,user:any,getRe
     const {loading,transactions,requests} = this.props.transactions;
     return (
       <>
-      <Navbar user={this.props}/>
         <div className="transactionContainer tradertransaction">
             {
                 loading || requests.loading ?

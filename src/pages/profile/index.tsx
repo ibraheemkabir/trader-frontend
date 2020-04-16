@@ -16,7 +16,6 @@ class BuyDetails extends React.Component<{loginUser:any,user:any,history:any}>{
       const {user} = this.props;
     return (
       <>
-      <Navbar user={this.props}/>
         <div className="transactionContainer profile">
             <p></p>
             <div className="headerText">

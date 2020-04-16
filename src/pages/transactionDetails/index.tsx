@@ -44,9 +44,7 @@ class BuyDetails extends React.Component<{
     const {user} = this.props;
     const transactions = this.props.location.state.details;
     return (
-      <>
-      <Navbar user={this.props}/>
-        
+      <>        
         <div className="transactionContainer details">
             <p></p>
             <div className="headerText">
@@ -156,7 +154,13 @@ class BuyDetails extends React.Component<{
             <p>
                 {
                     (transactions.status === 3 && !user?.advertiser) &&
-                    <ThemedButton text={'Upload Payment Evidence'} onPress={()=>{}} type={'primary'}/>  
+                    <ThemedButton text={'Upload Payment Evidence'} 
+                    onPress={()=>
+                    this.props.history.push({
+                    pathname: '/managePayment',
+                    state: { detail: transactions }})
+                    } 
+                    type={'primary'}/>  
                 }
             </p>
             <p>

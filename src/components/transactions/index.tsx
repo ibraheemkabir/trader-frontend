@@ -33,7 +33,7 @@ export function TransactionTile(props:any) {
                     </div>
                     <div style={{...styles.flexItem,...styles.details}}>{e.accepted[0]}</div>
                     <div style={{...styles.flexItem,...styles.details}}>{`${e.amount} ${e.from_cur} / ${e.price} ${e.to_cur}`}</div>
-                    <div style={{...styles.flexItem,...styles.details}}>{e.amount}</div>
+                    <div style={{...styles.flexItem,...styles.details}}>{e.minimum_volume}</div>
                 </div>
              </Link>
              )}

@@ -28,12 +28,12 @@ class BuyDetails extends React.Component<{makeRequest:any,user:any,history:any,t
     return (
       <>
         <div className="detailTexts">
-             Manage Escrow
+             Manage Payment
         </div>
         <p></p>
         <div>
               <ThemedButton 
-                text={'Complete Escrow'} 
+                text={'Upload Payment Evidence'} 
                  onPress={()=>this.props.traderUpdateTransaction(transactions._id,this.props.history)}
               />                        
         </div>

@@ -34,7 +34,6 @@ class Dashboard extends React.Component<{loginUser:any,user:any,history:any,getA
   render(){
     return (
       <>
-      <Navbar user={this.props}/>
         <div className="estimate-container">
           <BuyContainer ad={this.props.addAd} user={this.props.user}/> 
         </div>

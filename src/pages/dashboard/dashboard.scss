@@ -4,7 +4,27 @@
     font-weight: 600;
     font-family: roboto;
   }
-  
+  .bm-overlay{
+    width: 40% !important;
+    background: rgba(0, 0, 0, 0.84) !important;
+  }
+
+  .bm-menu{
+    width: 80%;
+  }
+  a.bm-item.menu-item {
+    text-decoration: none;
+    color: white;
+}
+
+  nav.bm-item-list {
+    width: 80%;
+  }
+
+  a.bm-item.menu-item {
+    margin: 2rem;
+    margin-right: 0rem;
+  }
   .App-logo {
     height: 40vmin;
     pointer-events: none;

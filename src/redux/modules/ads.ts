@@ -44,7 +44,6 @@ export function addAd(data:any) {
     try{
       await getAds('http://localhost:3005/postAd', data)
       .then(async (data:any) => {
-      
       }).then(async ()=> {
       await getAllAds();
       toast('Advert Posted Successfully', {

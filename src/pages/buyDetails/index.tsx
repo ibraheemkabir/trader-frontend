@@ -72,7 +72,6 @@ class BuyDetails extends React.Component<{makeRequest:any,user:any,history:any,a
     console.log(this.props)
     return (
       <>
-        <Navbar user={this.props}/>
         <div className="detailTexts">
              Transaction Details
         </div>

@@ -35,7 +35,6 @@ class BuyDetails extends React.Component<{getUserTransactions:any,user:any,histo
     const {loading,transactions} = this.props.transactions;
     return (
       <>
-      <Navbar user={this.props}/>
         <div className="transactionContainer usertransaction">
             <p></p>
             <div className="headerText">

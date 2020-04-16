@@ -27,7 +27,6 @@ class AdvertisementsPage extends React.Component<{loginUser:any,user:any,history
   render(){
     return (
       <>
-        <Navbar user={this.props}/>
         <div className="App">
           <p>Trending Sales</p>
           {
