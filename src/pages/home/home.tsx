@@ -34,7 +34,8 @@ class HomeComponent extends React.Component<{loginUser:any,user:any,history:any}
       <div className="App">
         <header className="App-header">
           <div className="btn" >
-              <ThemedButton text={!loading?btnText:'logging user in'} onPress={()=>this.handleLogin('456fghhhhhhgf2')} type={'primary'}/>  
+              <ThemedButton text={!loading?btnText:'logging user in'} onPress={()=>this.handleLogin('456fghhhhhhgf2')} type={'primary'}/> 
+              <p></p> 
               <ThemedButton text={!loading?btnText:'logging user in'} onPress={()=>this.handleLogin('456fghhhhhhgf1')} type={'primary'}/>  
               {/* <li ><Link to={'/'} className="nav-link"> Home </Link></li>
               <li><Link to={'/contact'} className="nav-link">Dashboard</Link></li> */} 

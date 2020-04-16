@@ -6,7 +6,7 @@ import { getRenderedResource } from 'unifyre-native-assets'
 import {Divider} from './../divider';
 import Dropdown from './../dropdown'
 
-export function SelectGroupAddon({placeholder='',fieldlabel=''}) {
+export function SelectGroupAddon({placeholder='',fieldlabel='',chooseItem= (value: any)=>{} }) {
 
     const theme = useContext(ThemeContext);
     const styles = themedStyles(theme);
@@ -21,6 +21,7 @@ export function SelectGroupAddon({placeholder='',fieldlabel=''}) {
                     <Dropdown 
                         list={[{value: 1, label: 'Paypal'}, {value: 2, label:'Bank Transfer'}]} 
                         caret={true}
+                        chooseItm={chooseItem}
                     />    
                     </div>
                 </div>

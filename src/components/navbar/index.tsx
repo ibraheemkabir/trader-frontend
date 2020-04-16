@@ -1,8 +1,21 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import './navbar.scss';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { useDispatch } from 'react-redux';
 
 export const Navbar = (props:any) => {
+    const dispatch = useDispatch()
+
+    var retrievedObject:any = localStorage.getItem('user');
+        useEffect(() => {
+            if(retrievedObject){
+                dispatch({
+                    type: 'user/LOGIN',
+                    payload: JSON.parse(retrievedObject)
+                });
+            }
+        }, [])
+    
     return(
         <div className="nav-container sideLinks">
             <p className="logo">

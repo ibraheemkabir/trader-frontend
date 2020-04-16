@@ -21,6 +21,7 @@ class Dashboard extends React.Component<{loginUser:any,user:any,history:any,getA
 
   componentWillMount(){
     this.props.getAllAds()
+    console.log(localStorage.getItem('user'),'----0000')
   }
 
   handleLogin = async () => {
@@ -35,7 +36,7 @@ class Dashboard extends React.Component<{loginUser:any,user:any,history:any,getA
       <>
       <Navbar user={this.props}/>
         <div className="estimate-container">
-          <BuyContainer ad={this.props.addAd}/> 
+          <BuyContainer ad={this.props.addAd} user={this.props.user}/> 
         </div>
         <div className="App">
           <p>Trending Sales</p>

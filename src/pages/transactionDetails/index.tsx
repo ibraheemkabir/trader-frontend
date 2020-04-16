@@ -6,7 +6,7 @@ import { RootState } from '../../redux/index';
 import { loginUser } from './../../redux/modules/user';
 import { getTransaction, traderUpdateTransaction } from './../../redux/modules/transactions';
 import {Navbar} from './../../components/navbar';
-const {ThemedButton} = require('unifyre-web-wallet-components');
+const {ThemedButton,ThemedLink} = require('unifyre-web-wallet-components');
 
 class BuyDetails extends React.Component<{
     getTransaction:any,user:any,
@@ -41,9 +41,8 @@ class BuyDetails extends React.Component<{
   }
 
   render(){
-      const {user} = this.props;
-      const transactions = this.props.location.state.details;
-    console.log(user,'00998484848')
+    const {user} = this.props;
+    const transactions = this.props.location.state.details;
     return (
       <>
       <Navbar user={this.props}/>
@@ -76,7 +75,20 @@ class BuyDetails extends React.Component<{
                         <div className="value">
                             {this.manageStatus(transactions.status)}
                         </div>
-                    </div>  
+                    </div>
+                    {
+                    (transactions.status === 2 && user?.advertiser) &&  
+                    <div className="value escrowlink">
+                        <ThemedLink 
+                        text={'Go to Escrow Page'} 
+                        onPress={
+                        ()=>this.props.history.push({
+                        pathname: '/manageEscrow',
+                        state: { detail: transactions }})
+                        }
+                        />
+                    </div>
+                    }
                 </div>
                 {
                     (transactions.status === 3 && !user?.advertiser) &&
@@ -150,14 +162,14 @@ class BuyDetails extends React.Component<{
             <p>
                 {
                     (transactions.status === 1 && user?.advertiser) &&
-                    <ThemedButton text={'Approve Request'} onPress={()=>{}} type={'primary'}/>  
+                    <ThemedButton text={'Approve Request'} onPress={()=>this.props.traderUpdateTransaction(transactions._id,this.props.history)} type={'primary'}/>  
                 }
             </p>
             <p>
                 <ThemedButton text={'Raise Report'} onPress={()=>{}} type={'primary'}/>  
             </p>
             <div>
-                <ThemedButton text={'Cancel Request'} onPress={()=>this.props.traderUpdateTransaction(transactions._id)} type={'highlight'}/>  
+                <ThemedButton text={'Cancel Request'} onPress={()=>{}} type={'highlight'}/>  
             </div>
             <p></p>
         </div>

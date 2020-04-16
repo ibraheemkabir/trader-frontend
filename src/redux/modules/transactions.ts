@@ -76,7 +76,7 @@ export function getTransaction(id:any,history:any) {
   }
 };
 
-export function traderUpdateTransaction(id:any){
+export function traderUpdateTransaction(id:any,history:any){
   return async (dispatch: Dispatch<AnyAction>) => {
     dispatch({
       type: 'update/LOADING',
@@ -88,7 +88,7 @@ export function traderUpdateTransaction(id:any){
           type: 'update/SUCCESS',
           payload: data.response
         }),
-      )
+      ).then(()=>history.push('/traderTransactions'))
     }catch(e){
       console.log(e)
         dispatch({
@@ -99,19 +99,21 @@ export function traderUpdateTransaction(id:any){
   }
 }
 
-export function getRequests(id:any,history:any) {
+export function getRequests(id:any) {
+  console.log(id,'heR======')
   return async (dispatch: Dispatch<AnyAction>) => {
     dispatch({
       type: 'requests/LOADING',
     })
     try{
     await getAds(`http://localhost:3005/trader/transactions`, {id})
-      .then(async (data) => 
+      .then(async (data) => {
         dispatch({
           type: 'requests/SUCCESS',
           payload: data.response
-        }),
-      )
+        });
+        console.log(data,'requesssts')
+      })
     }catch(e){
       console.log(e)
         dispatch({

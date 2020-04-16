@@ -48,12 +48,13 @@ export function loginUser(id:any) {
       type: 'user/LOADING',
     })
     await userLogin(`http://localhost:3005/login?id=${id}`, userData)
-      .then(async (data) => 
+      .then(async (data) => {
         dispatch({
           type: 'user/LOGIN',
           payload: data.response
-        }),
-      ).then(()=>history.push('./'))
+        });
+        localStorage.setItem('user', JSON.stringify(data.response));
+      }).then(()=>history.push('./'))
   }
 };
 

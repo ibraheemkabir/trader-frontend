@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './drowdown.scss';
 
-class Dropdown extends React.Component<{list:any,caret:any}>{  
+class Dropdown extends React.Component<{list:any,caret:any,chooseItm:any}>{  
     
     static defaultProps = {
       list: []
@@ -15,7 +15,7 @@ class Dropdown extends React.Component<{list:any,caret:any}>{
 
     state = {
     isOpen: false,
-    labelItem: null,
+    labelItem: this.props.list[0] || null,
     typeDropdown: null
     };
   
@@ -31,7 +31,12 @@ class Dropdown extends React.Component<{list:any,caret:any}>{
       }        
       this.setState({
           labelItem: firstItem
-      });    
+      });
+      if(this.props.chooseItm!=undefined){ 
+        console.log('heloop');
+          
+        this.props.chooseItm(firstItem);
+      } 
     }
     checkType = (value:any) => {
       this.setState({
@@ -51,7 +56,8 @@ class Dropdown extends React.Component<{list:any,caret:any}>{
         this.setState({
           labelItem: value      
         })
-      }    
+      }
+      this.props.chooseItm(value); 
     };
     
     renderDataDropDown = (item:any, index:any) => {    

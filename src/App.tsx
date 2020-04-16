@@ -8,6 +8,8 @@ import Transactions from './pages/advertisements';
 import UserTransactions from './pages/userTransactions';
 import ManageTransactions from './pages/transactionDetails';
 import TraderTransactions from './pages/adminTransactions';
+import EscrowManagement from './pages/escrowManagement';
+
 
 import { ToastContainer, toast } from 'react-toastify';
 
@@ -29,6 +31,7 @@ class App extends React.Component {
                 <Route path='/myTransactions' component={UserTransactions}/>
                 <Route path='/manageTransaction/:id' component={ManageTransactions}/>
                 <Route path='/traderTransactions' component={TraderTransactions}/>
+                <Route path='/manageEscrow' component={EscrowManagement}/>
             </Switch>
             <ToastContainer />
           </div>

@@ -45,11 +45,11 @@ class BuyDetails extends React.Component<{getUserTransactions:any,user:any,getRe
   }
 
   async componentWillMount(){
+    console.log(this.props.user,'HHYYUIIOO')
       await this.props.getRequests(this.props.user.unifyreId)
       await this.props.getUserTransactions(this.props.user._id)
-      console.log(this.props.transactions,'====-009e9e9e8e8');
-      
-    }
+      await this.props.getRequests(this.props.user.unifyreId)      
+  }
 
 
   render(){
