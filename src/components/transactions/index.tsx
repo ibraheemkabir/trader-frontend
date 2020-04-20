@@ -9,34 +9,56 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 const {ThemedButton,Row,ListItem} = require('unifyre-web-wallet-components');
 
 export function TransactionTile(props:any) {
-    const adverts = props.ads.ads;
-    adverts.map((e:any)=> console.log(e.accepted[1],e.accepted))
+    const adverts = props.ads;
+    const {type} = props
     const theme = useContext(ThemeContext);
     const styles = themedStyles(theme);
     const headers = [
         'Seller','Preffered Payment Method','Price/Crypto','Minimum Volume'
+    ]
+    const buyerHeaders = [
+        'Buyer Details','Buyer Preffered Payment Method','Crypto Volume interested','Date Posted'
     ]
     
     return (
         <>
         <div style={{...styles.Container,...styles.header}}>
             {
-                headers.map(e=><div style={styles.flexItem}>{e}</div>)
+                    type === 'buy' ?
+                    headers.map(e=><div style={styles.flexItem}>{e}</div>)
+                    : buyerHeaders.map(e=><div style={styles.flexItem}>{e}</div>)
             }
         </div>
-             {adverts.map((e:any)=> 
-             <Link to={`/transaction/${e._id}`} className="moreTransactions">
-                <div key={e._id} style={{...styles.Container,...styles.content}}>
-                    <div style={{...styles.flexItem,...styles.details}}>
-                        {e.userdetails[0].name}
-                        <p>Seller Rating : {e.userdetails[0].Reputation.stars}</p>
+             {
+             adverts.length > 0 ?
+                type === 'buy' ?
+                 adverts.map((e:any)=> 
+                    <Link to={`/transaction/${e._id}`} className="moreTransactions">
+                    <div key={e._id} style={{...styles.Container,...styles.content}}>
+                        <div style={{...styles.flexItem,...styles.details}}>
+                            {e.userdetails[0].name}
+                            <p>Seller Rating : {e.userdetails[0].Reputation.stars}</p>
+                        </div>
+                        <div style={{...styles.flexItem,...styles.details}}>{e.accepted[0]}</div>
+                        <div style={{...styles.flexItem,...styles.details}}>{`${e.amount} ${e.from_cur} / ${e.price} ${e.to_cur}`}</div>
+                        <div style={{...styles.flexItem,...styles.details}}>{e.minimum_volume}</div>
                     </div>
-                    <div style={{...styles.flexItem,...styles.details}}>{e.accepted[0]}</div>
-                    <div style={{...styles.flexItem,...styles.details}}>{`${e.amount} ${e.from_cur} / ${e.price} ${e.to_cur}`}</div>
-                    <div style={{...styles.flexItem,...styles.details}}>{e.minimum_volume}</div>
-                </div>
-             </Link>
-             )}
+                    </Link>)
+                :  (adverts.map((e:any)=> 
+                <Link to={`/transaction/${e._id}`} className="moreTransactions">
+                   <div key={e._id} style={{...styles.Container,...styles.content}}>
+                       <div style={{...styles.flexItem,...styles.details}}>
+                           {e.userdetails[0].name}
+                           <p>Seller Rating : {e.userdetails[0].Reputation.stars}</p>
+                       </div>
+                       <div style={{...styles.flexItem,...styles.details}}>{e.accepted[0]}</div>
+                       <div style={{...styles.flexItem,...styles.details}}>{`${e.amount} ${e.from_cur} / ${e.price} ${e.to_cur}`}</div>
+                       <div style={{...styles.flexItem,...styles.details}}>{new Date(e.created).toLocaleDateString("en-US")}</div>
+                   </div>
+                   </Link>)
+             )  : <div><p></p> There are currently no ads</div>
+
+            }
         </>
     );
 }

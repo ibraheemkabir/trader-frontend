@@ -49,6 +49,11 @@ export function BuyContainer (props:any){
         await props.ad(data)
     }
 
+    const handleFilter = async () => {
+        console.log(cost,amount,minimum,amountValue,costValue,prefValue,props.user.unifyreId);
+    
+    }
+
 
 
     return(
@@ -89,7 +94,7 @@ export function BuyContainer (props:any){
                 chooseItem={choosePrefType}
                 />
                 <div className="btnContainer">
-                    <ThemedButton text={'Search for Offers'} type='primary'/>
+                    <ThemedButton text={'Search for Offers'} type='primary' onPress={()=>props.filter(props.ads,Number(amount),amountValue)}/>
                 </div>
                 </>
                 : 

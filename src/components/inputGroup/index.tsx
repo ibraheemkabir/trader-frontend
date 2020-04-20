@@ -1,5 +1,5 @@
 
-import React, { useContext } from 'react';
+import React, { useContext, useLayoutEffect } from 'react';
 import PropTypes from "prop-types";
 import { ThemeContext, Theme } from 'unifyre-react-helper';
 import { getRenderedResource } from 'unifyre-native-assets'
@@ -56,14 +56,16 @@ InputGroupAddon.propTypes = {
 const themedStyles = function (theme:any) {
     return {
         mainContainer: {
-            width: '1000%'
+            width: '1000%',
+            padding: '5px 0px'
         },
         label: {
             padding: '5px 0px 2px 15px',
             margin: '0px',
             fontSize: '0.6rem',
             color: 'rgb(56, 68, 87)',
-            letterSpacing: '0.5px', 
+            letterSpacing: '0.5px',
+            textAlign: 'start' as "start"
         },
         Container: {
             borderRadius: 0,
@@ -92,7 +94,7 @@ const themedStyles = function (theme:any) {
             margin:'auto', 
             height: 'auto',
             fontSize: '20px',
-            padding: '0.2px 6px'
+            padding: '0.2px 15px'
             // paddingLeft: theme.get(Theme.Spaces.screenMarginHorizontal),
             // paddingRight: theme.get(Theme.Spaces.screenMarginHorizontal),
         },
@@ -100,13 +102,12 @@ const themedStyles = function (theme:any) {
             backgroundColor: '#ecf3fe',
             fontSize: '1.0rem',
             color: '#000000',
-            paddingLeft: theme.get(Theme.Button.btnBorderRadius),
             flex: 1,
             display: 'inline-block', 
             border: 'none',
             outline: 'none',
             width: '70%',
-            padding: '0px 8px'
+            padding: '0px 0px',
         },
         icon: {
             marginLeft: '70px',
@@ -126,7 +127,7 @@ const themedStyles = function (theme:any) {
             outline: 'none'
         },
         dropdownContainer:{
-            margin: '0.55rem 0px'
+            margin: '0.75rem 0px'
         }
     }
 }

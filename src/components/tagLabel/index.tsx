@@ -3,33 +3,31 @@ import PropTypes from "prop-types";
 import { ThemeContext, Theme } from 'unifyre-react-helper';
 import { getRenderedResource } from 'unifyre-native-assets'
 
-export const Divider = ({Gap='small'}) => {
+export const TagLabel = ({text='',type='incomplete'}) => {
 
     const theme = useContext(ThemeContext);
     const styles = themedStyles(theme);
 
     return (
         <div>
-            {Gap === 'small' && <p style={styles.Container}></p>}
-            {Gap === 'big' && <p style={styles.smallContainer}></p>}
-            {Gap === 'large' && <p style={styles.largeContainer}></p>}
+           {type === 'incomplete' && <p style={styles.incomplete}>{text}</p>}
+           {type === 'complete' && <p style={styles.complete}>{text}</p>}
         </div>
     );
 }
 
-Divider.propTypes = {
-    placeholder: PropTypes.string,
-    icon: PropTypes.string,
-    type: PropTypes.string,
-    value: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-    ]),
-    toggleIcon: PropTypes.func,
+TagLabel.propTypes = {
+    text: PropTypes.string
 }
 
 const themedStyles = function (theme:any) {
     return {
+        incomplete:{
+            color: '#ec153f'
+        },
+        complete:{
+            color: '#15651'
+        },
         Container: {
             borderRadius: 0,
             borderColor: 'rgb(1, 16, 46)',

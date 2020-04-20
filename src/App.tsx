@@ -16,13 +16,15 @@ import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 import { ToastContainer, toast } from 'react-toastify';
 import { RootState } from '../src/redux';
+import Sales from './pages/sales';
+import SaleRequest from './pages/saleRequest';
 
 import createBrowserHistory from 'history/createBrowserHistory'
 import { useContext } from "react";
 
 export const history = createBrowserHistory();
 
-class App extends React.Component {
+class App extends React.Component<{user:any}> {
   state={
     width: false
   }
@@ -34,11 +36,15 @@ class App extends React.Component {
 
   render() {
     const {width} = this.state;
+    const {user} = this.props;
     return (
       <Router>     
           <div>
-            <SideNav width={width?'40%':'0%'}/>
-            <Navbar user={this.props} handleSideBar={this.toggleWidth}/>
+            {
+              user && <SideNav width={width?'40%':'0%'} user={this.props}/>
+            }{
+              user && <Navbar user={this.props} handleSideBar={this.toggleWidth}/>
+            }
             <Switch>
                 <Route exact path='/' component={Dashboard} />
                 <Route path='/dashboard' component={Home} />
@@ -49,6 +55,8 @@ class App extends React.Component {
                 <Route path='/manageTransaction/:id' component={ManageTransactions}/>
                 <Route path='/traderTransactions' component={TraderTransactions}/>
                 <Route path='/manageEscrow' component={EscrowManagement}/>
+                <Route path='/sales' component={Sales}/>
+                <Route path='/saleRequest' component={SaleRequest}/>
                 <Route path='/managePayment' component={PaymentDetails}/>
             </Switch>
             <ToastContainer />

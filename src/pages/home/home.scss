@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+
+  .btn{
+    width: 100%;
+  }
 }
 
 .App-logo {
@@ -7,9 +11,7 @@
   pointer-events: none;
 }
 
-.btn{
-  width: 400px;
-}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

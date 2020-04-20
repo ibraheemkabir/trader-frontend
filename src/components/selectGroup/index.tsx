@@ -43,7 +43,8 @@ SelectGroupAddon.propTypes = {
 const themedStyles = function (theme:any) {
     return {
         mainContainer: {
-            width: '95%'
+            width: '95%',
+            padding: '5px 0px'
         },
         label: {
             padding: '3px 15px 0px 13px',
@@ -51,6 +52,7 @@ const themedStyles = function (theme:any) {
             fontSize: '0.6rem',
             color: 'rgb(56, 68, 87)',
             letterSpacing: '0.5px', 
+            textAlign: 'start' as "start"
         },
         Container: {
             borderRadius: 0,
@@ -71,7 +73,6 @@ const themedStyles = function (theme:any) {
             borderRadius: 0,
             borderColor: 'rgb(220, 220, 220)',
             borderWidth: '0px 0px 0.8px 0px',
-            borderStyle: 'solid',
             backgroundColor:  '#ecf3fe',
             display: "flex",
             borderBottomWidth: 0.05,

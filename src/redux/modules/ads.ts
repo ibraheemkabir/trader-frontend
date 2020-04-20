@@ -20,7 +20,10 @@ const initialState: adsType = {
     ads: [],
     ad: {},
     adloading: true,
-    loading: true
+    loading: true,
+    sales: {
+      loading:true
+    }
  };
 
 export const adsSuccess = (user: userDetailsType) => {
@@ -57,6 +60,51 @@ export function addAd(data:any) {
     }
   }
 }
+
+export function addSale(data:any) {
+  return async (dispatch: Dispatch<AnyAction>) => {
+    dispatch({
+      type: 'sale/LOADING',
+    })
+    try{
+      await getAds('http://localhost:3005/postSale', data)
+      .then(async (data:any) => {
+      }).then(async ()=> {
+      toast('sale Posted Successfully', {
+        position: toast.POSITION.TOP_CENTER,
+        type: toast.TYPE.SUCCESS,
+        // @ts-ignore: Unreachable code error
+      });
+    })
+    }catch{
+
+    }
+  }
+}
+
+export function getAllSales() {
+  return async (dispatch: Dispatch<AnyAction>) => {
+    dispatch({
+      type: 'sales/LOADING',
+    })
+    try{
+    await getAds('http://localhost:3005/sales', userData)
+      .then(async (data) => {
+        return dispatch({
+          type: 'sales/SUCCESS',
+          payload: data.response
+        })
+      })
+    }catch(e){
+      console.log(e)
+        dispatch({
+            type: 'sales/FAILURE',
+            payload: 'error'
+        });
+    }
+  }
+};
+
 export function getAllAds() {
   return async (dispatch: Dispatch<AnyAction>) => {
     dispatch({
@@ -155,6 +203,13 @@ export function adsReducer(
         ...state,
         loading: true
       }
+    case 'sales/LOADING':
+      return {
+        ...state,
+        sales: {
+          loading: true
+        }
+      }
     break
     case 'ad/LOADING':
       return {
@@ -168,6 +223,14 @@ export function adsReducer(
         ads: action.payload,
         loading: false
       };
+    case 'sales/SUCCESS':
+      return { 
+        ...state,
+        sales: {
+          loading: false,
+          sales:action.payload
+        }
+      };
     case 'ad/SUCCESS':
       return { 
         ...state,
@@ -175,6 +238,7 @@ export function adsReducer(
         adloading: false
       };
     case 'ads/FAILURE':
+    case 'sales/FAILURE':
     default:
       return state;
   }

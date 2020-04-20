@@ -35,9 +35,6 @@ export const Navbar = (props:any) => {
                     </>
                     :
                     <>
-                    <p className="sideLinks profile">
-                        {props.user.user.advertiser ? <Link to='/traderTransactions'>Transactions</Link>: <></>}
-                    </p>
                     <p></p>
                     <p className="sideLinks profile">
                        Hello <Link to='/profile'>{props.user.user.name}</Link>

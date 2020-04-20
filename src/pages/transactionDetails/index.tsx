@@ -34,7 +34,9 @@ class BuyDetails extends React.Component<{
         case 3:
             return response = 'Awaiting Transaction response from buyer'
         case 4:
-            return response = 'awaiting  response'
+            return response = 'awaiting payment confirmation'
+        case 5:
+            return response = 'Crypto remitted and transaction complete'
         default:
             return response;
       }
@@ -76,7 +78,8 @@ class BuyDetails extends React.Component<{
                     </div>
                     {
                     (transactions.status === 2 && user?.advertiser) &&  
-                    <div className="value escrowlink">
+                    <div onClick={()=>this.props.history.push({pathname: '/manageEscrow',state: { detail: transactions }})
+                    } className="value escrowlink">
                         <ThemedLink 
                         text={'Go to Escrow Page'} 
                         onPress={
@@ -165,6 +168,12 @@ class BuyDetails extends React.Component<{
             </p>
             <p>
                 {
+                    (transactions.status === 4 && user?.advertiser) &&
+                    <ThemedButton text={'Confirm payment'} onPress={()=>this.props.traderUpdateTransaction(transactions._id,this.props.history)} type={'primary'}/>  
+                }
+            </p>
+            <p>
+                {
                     (transactions.status === 1 && user?.advertiser) &&
                     <ThemedButton text={'Approve Request'} onPress={()=>this.props.traderUpdateTransaction(transactions._id,this.props.history)} type={'primary'}/>  
                 }
@@ -173,7 +182,10 @@ class BuyDetails extends React.Component<{
                 <ThemedButton text={'Raise Report'} onPress={()=>{}} type={'primary'}/>  
             </p>
             <div>
-                <ThemedButton text={'Cancel Request'} onPress={()=>{}} type={'highlight'}/>  
+                {
+                    (transactions.status !== 5) &&
+                    <ThemedButton text={'Cancel Request'} onPress={()=>{}} type={'highlight'}/>  
+                }
             </div>
             <p></p>
         </div>

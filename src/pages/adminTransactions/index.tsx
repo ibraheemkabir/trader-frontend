@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 import { RootState } from '../../redux/index';
 import { getUserTransactions,getRequests } from './../../redux/modules/transactions';
-import {Navbar} from './../../components/navbar';
+import {TagLabel} from './../../components/tagLabel';
 const {ThemedButton} = require('unifyre-web-wallet-components');
 
 class BuyDetails extends React.Component<{getUserTransactions:any,user:any,getRequests:any,history:any,transactions:any}>{
@@ -30,7 +30,9 @@ class BuyDetails extends React.Component<{getUserTransactions:any,user:any,getRe
       case 3:
           return response = 'Awaiting Payment Confirmation from buyer'
       case 4:
-          return response = 'awaiting  response'
+          return response = 'awaiting  Payment confirmation from seller'
+      case 5:
+        return response = 'transaction completed'
       default:
           return response;
     }
@@ -67,7 +69,7 @@ class BuyDetails extends React.Component<{getUserTransactions:any,user:any,getRe
                 <div className="userDetails">
                 <div className="details-container headers">
                     <div className="label">
-                        Transaction Requests
+                       Your Pending Buy Requests
                     </div>
                 </div>
                     {
@@ -81,7 +83,7 @@ class BuyDetails extends React.Component<{getUserTransactions:any,user:any,getRe
                                           Purchase of {e.amount} {e.transactiondetails[0].from_cur} by {e.userdetails[0].name}
                                       </div>
                                       <div className="value">
-                                          <ThemedButton text={this.manageStatus(e.status)} onPress={()=>{}} type={'highlight'}/>  
+                                          <TagLabel text={this.manageStatus(e.status)} type={e.status==5?'complete':'incomplete'}/>
                                       </div>
                                     </>
                                 }
@@ -90,7 +92,7 @@ class BuyDetails extends React.Component<{getUserTransactions:any,user:any,getRe
                         )
                     }
                 <div className="details-container headers">
-                    <div className="label">
+                    <div className="label header subheader">
                         My Transactions
                     </div>
                 </div>
@@ -104,8 +106,8 @@ class BuyDetails extends React.Component<{getUserTransactions:any,user:any,getRe
                                       <div className="label">
                                           Purchase of {e.amount} {e.transactiondetails[0].from_cur} from {e.userdetails[0].name}
                                       </div>
-                                      <div className="value">
-                                          <ThemedButton text={'Pending'} onPress={()=>{}} type={'highlight'}/>  
+                                      <div className="value labels">
+                                        <TagLabel text={this.manageStatus(e.status)} type={e.status==5?'complete':'incomplete'}/>
                                       </div>
                                     </>
                                 }

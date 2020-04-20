@@ -22,5 +22,6 @@ export interface adsType {
     "ads": [],
     "loading": boolean,
     "ad": {},
-    "adloading": boolean
+    "adloading": boolean,
+    "sales": {}
 }

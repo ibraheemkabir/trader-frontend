@@ -59,7 +59,7 @@ class BuyDetails extends React.Component<{getUserTransactions:any,user:any,histo
                                           Purchase of {e.amount} {e.transactiondetails[0].from_cur} from {e.userdetails[0].name}
                                       </div>
                                       <div className="value">
-                                          <ThemedButton text={'Pending'} onPress={()=>{}} type={'highlight'}/>  
+                                          <ThemedButton text={e.status!=5?'Pending':'completed'} onPress={()=>{}} type={e.status!=5?'highlight':'primary'}/>  
                                       </div>
                                     </>
                                 }

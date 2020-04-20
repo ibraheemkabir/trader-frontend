@@ -9,6 +9,13 @@
     background: rgba(0, 0, 0, 0.84) !important;
   }
 
+  .headerContainer{
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 20px;
+    font-size: 0.8rem;
+  }
+  
   .bm-menu{
     width: 80%;
   }

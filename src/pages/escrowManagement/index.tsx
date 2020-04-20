@@ -33,7 +33,7 @@ class BuyDetails extends React.Component<{makeRequest:any,user:any,history:any,t
         <p></p>
         <div>
               <ThemedButton 
-                text={'Complete Escrow'} 
+                text={'Confirm Escrow'} 
                  onPress={()=>this.props.traderUpdateTransaction(transactions._id,this.props.history)}
               />                        
         </div>
