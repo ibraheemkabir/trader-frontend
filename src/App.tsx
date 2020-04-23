@@ -33,6 +33,7 @@ class App extends React.Component<{user:any}> {
     const {width} = this.state;
     this.setState({width: !width})
   }
+  
 
   render() {
     const {width} = this.state;
