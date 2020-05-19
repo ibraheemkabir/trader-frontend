@@ -5,7 +5,7 @@ import { bindActionCreators, Dispatch } from 'redux';
 import { RootState } from '../../redux/index';
 import { loginUser } from './../../redux/modules/user';
 import { getTransaction, traderUpdateTransaction } from './../../redux/modules/transactions';
-import {Navbar} from './../../components/navbar';
+import {Status} from './../../components/status';
 const {ThemedButton,ThemedLink} = require('unifyre-web-wallet-components');
 
 class BuyDetails extends React.Component<{
@@ -46,12 +46,13 @@ class BuyDetails extends React.Component<{
     const {user} = this.props;
     const transactions = this.props.location.state.details;
     return (
-      <>        
+      <>
         <div className="transactionContainer details">
             <p></p>
             <div className="headerText">
                 Manage Transaction
             </div> 
+            <Status/>   
             {
                 transactions.loading?
                 <div className="headerText">

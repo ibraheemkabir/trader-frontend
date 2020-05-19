@@ -75,6 +75,7 @@ export function BuyContainer (props:any){
                     chooseItem={chooseItem}
                     options={[{value: 1, label: 'BTC'}, {value: 2, label:'ETH'}]}
                 />
+
                 <div className="dividerContainer">
                     <Divider Gap={'big'}/>
                 </div>

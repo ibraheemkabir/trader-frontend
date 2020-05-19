@@ -54,7 +54,7 @@ a{
 
 .details-container{
     margin-bottom: 5px;
-    padding: 1rem 3rem 1rem 0rem;
+    padding: 1rem 1rem 0rem 0rem;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -72,6 +72,10 @@ a{
             font-size: 15px;
             text-align: center;
             margin-top: 0px;
+
+            p{
+             margin-bottom: 0px;   
+            }
         }
 
         .subheader{
@@ -88,6 +92,12 @@ a{
         letter-spacing: 0.5px;
         margin-bottom: 10px;
         margin-top: 20px;
+
+        p{
+            margin-bottom: 0px;   
+            color: #8080807a;
+        }
+
     }
     .value{
         margin-top: 7px;
@@ -127,18 +137,26 @@ a{
     padding-left: 0px;
     .details-container{
         margin-bottom: 5px;
-        padding: 1rem 3rem 1rem 0rem;
+        padding: 1rem 1rem 0rem 0rem;
         width: auto;
         display: flex;
         justify-content: space-between;
         padding-top: 0px;
         margin: 0 auto;
-
+        label{
+            p{
+                margin-bottom: 0px;   
+               }
+        }
         &.headers{
             padding: 0px;
             .label{
                 padding: 0px;
                 margin: 0;
+
+                p{
+                    margin-bottom: 0px;   
+                }
             }
         }
 
@@ -150,6 +168,10 @@ a{
             letter-spacing: 0.5px;
             margin-bottom: 10px;
             margin-top: 15px;
+
+            p {
+                margin-bottom: 0px;   
+            }
         }
         .value{
             margin-bottom: 10px;
@@ -164,6 +186,11 @@ a{
     flex: 1 1 1;
     .details-container{
         display: block;
+        .label{
+            p{
+                margin-bottom: 0px;   
+               }
+        }
     }
 }
 

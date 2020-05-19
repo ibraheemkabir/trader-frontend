@@ -2,6 +2,7 @@ import React from 'react';
 import './details.scss';
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import { connect } from 'react-redux';
+import {Status} from './../../components/status';
 import { bindActionCreators, Dispatch } from 'redux';
 import { RootState } from '../../redux/index';
 import { getUserTransactions,getRequests } from './../../redux/modules/transactions';
@@ -80,7 +81,7 @@ class BuyDetails extends React.Component<{getUserTransactions:any,user:any,getRe
                                 {
                                     <>
                                       <div className="label">
-                                          Purchase of {e.amount} {e.transactiondetails[0].from_cur} by {e.userdetails[0].name}
+                                          <span>Purchase of {e.amount} {e.transactiondetails[0].from_cur} by {e.userdetails[0].name}</span>
                                       </div>
                                       <div className="value">
                                           <TagLabel text={this.manageStatus(e.status)} type={e.status==5?'complete':'incomplete'}/>
@@ -91,6 +92,8 @@ class BuyDetails extends React.Component<{getUserTransactions:any,user:any,getRe
                           </Link>
                         )
                     }
+                <div>
+                  </div>
                 <div className="details-container headers">
                     <div className="label header subheader">
                         My Transactions
@@ -104,7 +107,7 @@ class BuyDetails extends React.Component<{getUserTransactions:any,user:any,getRe
                                 {
                                     <>
                                       <div className="label">
-                                          Purchase of {e.amount} {e.transactiondetails[0].from_cur} from {e.userdetails[0].name}
+                                          <span>Purchase of {e.amount} {e.transactiondetails[0].from_cur} from {e.userdetails[0].name}</span>
                                       </div>
                                       <div className="value labels">
                                         <TagLabel text={this.manageStatus(e.status)} type={e.status==5?'complete':'incomplete'}/>

@@ -34,6 +34,7 @@
     "unifyre-crypto": "git+https://github.com/ferrumnet/unifyre-crypto.git",
     "unifyre-native-assets": "git+https://github.com/ferrumnet/unifyre-native-assets",
     "unifyre-react-helper": "git+https://github.com/ferrumnet/unifyre-react-helper",
+    "unifyre-web-wallet-components": "git+https://github.com/ferrumnet/unifyre-web-wallet-components",
     "webfontloader": "^1.6.28"
   },
   "scripts": {
