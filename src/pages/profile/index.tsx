@@ -37,7 +37,7 @@ class BuyDetails extends React.Component<{loginUser:any,user:any,history:any}>{
                         Verified PhoneNumer
                     </div>
                     <div className="value">
-                        {`${user.zip}${user.phoneNumber}`}
+                        {`${user.whatsapp}`}
                     </div>
                     </div>
                     <div className="details-container">

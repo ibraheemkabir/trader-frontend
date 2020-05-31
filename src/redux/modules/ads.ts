@@ -238,7 +238,19 @@ export function adsReducer(
         adloading: false
       };
     case 'ads/FAILURE':
+      return { 
+        ...state,
+        ads: [],
+        loading: false
+      };
     case 'sales/FAILURE':
+      return { 
+        ...state,
+        sales: {
+          loading: false,
+          sales: []
+        }
+      };
     default:
       return state;
   }

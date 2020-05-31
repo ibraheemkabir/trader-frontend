@@ -6,6 +6,8 @@ import { RootState } from '../../redux/index';
 import { loginUser } from './../../redux/modules/user';
 import { getTransaction, traderUpdateTransaction } from './../../redux/modules/transactions';
 import {Status} from './../../components/status';
+import {Loader} from '../../components/loader';
+
 const {ThemedButton,ThemedLink} = require('unifyre-web-wallet-components');
 
 class BuyDetails extends React.Component<{
@@ -52,11 +54,11 @@ class BuyDetails extends React.Component<{
             <div className="headerText">
                 Manage Transaction
             </div> 
-            <Status/>   
+            <Status state={transactions.status} />   
             {
                 transactions.loading?
                 <div className="headerText">
-                    Loading
+                    <Loader count={5}/>
                 </div>
             :
             <div className="estimate-container">

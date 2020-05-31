@@ -1,0 +1,36 @@
+@keyframes placeHolderShimmer {
+    0% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        background-position: -468px 0
+    }
+    to {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        background-position: 468px 0
+    }
+}
+
+
+
+  .animated-background {
+    will-change: transform;
+    animation: placeHolderShimmer 1s linear infinite forwards;
+    -webkit-backface-visibility: hidden;
+    background: #e6e6e6;
+    background: linear-gradient(90deg, #eee 8%, #ddd 18%, #eee 33%);
+    background-size: 800px 104px;
+    height: 100%;
+    position: relative;
+    width: 95%;
+    height: 15px;
+    right: 0;
+    margin: 0 2.5%;
+    top: 5px;
+    margin-top: 5px;;
+  }
+
+  .skel-mask {
+    background: #fff;
+    z-index: 200
+  }

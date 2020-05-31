@@ -42,7 +42,7 @@ class App extends React.Component<{user:any}> {
       <Router>     
           <div>
             {
-              user && <SideNav width={width?'40%':'0%'} user={this.props}/>
+              user && <SideNav width={width?'50%':'0%'} user={this.props}/>
             }{
               user && <Navbar user={this.props} handleSideBar={this.toggleWidth}/>
             }

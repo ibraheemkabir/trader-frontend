@@ -3,6 +3,11 @@
     padding-bottom: 2rem;
     font-weight: 600;
     font-family: roboto;
+
+    .sectionHeader{
+      text-align: start;
+      margin-left: 0.8rem;
+    }
   }
   .bm-overlay{
     width: 40% !important;
@@ -27,6 +32,8 @@
   nav.bm-item-list {
     width: 80%;
   }
+ 
+
 
   a.bm-item.menu-item {
     margin: 2rem;
@@ -94,8 +101,8 @@
     color: black;
     cursor: pointer;
     p{
-      margin: 4px 10px;
-      font-size: 10px;
+      margin: 4px 15px;
+      font-size: 8px;
     }
   }
 

@@ -162,7 +162,7 @@ class BuyDetails extends React.Component<{makeRequest:any,user:any,history:any,a
        
         <div className="App">
           <p className="similar">Similar Trade requests</p>
-          <TransactionTile ads={this.props.ads}  type={'buy'}/>
+          <TransactionTile ads={this.props.ads.ads}  type={'buy'}/>
         </div>
       </>
     );

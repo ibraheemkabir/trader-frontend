@@ -8,6 +8,7 @@ import { RootState } from '../../redux/index';
 import { createBrowserHistory,createHashHistory } from 'history';
 import { userReducer,loginUser,loading } from './../../redux/modules/user';
 const {ThemedButton,InputGroupAddon,Row,ListItem} = require('unifyre-web-wallet-components');
+const {PageTopPart} = require('unifyre-web-components');
 
 export const browserHistory = createBrowserHistory();
 export const hashHistory = createBrowserHistory();

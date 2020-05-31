@@ -6,6 +6,9 @@ import { bindActionCreators, Dispatch } from 'redux';
 import { RootState } from '../../redux/index';
 import { getUserTransactions } from './../../redux/modules/transactions';
 import {Navbar} from './../../components/navbar';
+import {Loader} from '../../components/loader';
+import {timeAgo} from '../../utils';
+
 const {ThemedButton} = require('unifyre-web-wallet-components');
 
 class BuyDetails extends React.Component<{getUserTransactions:any,user:any,history:any,transactions:any}>{
@@ -18,12 +21,9 @@ class BuyDetails extends React.Component<{getUserTransactions:any,user:any,histo
   };
 
   filterTrasaction=(userdetails:any)=>{
-    console.log(userdetails,'===<>');
       let response =
       userdetails.filter((e:any)=>userdetails.id==this.props.user.id) 
-      
       return response.name
-
   }
 
   componentWillMount(){
@@ -43,7 +43,7 @@ class BuyDetails extends React.Component<{getUserTransactions:any,user:any,histo
             {
                 loading ?
                 <div className="headerText">
-                Loading.....
+                  <Loader count={5}/>
                 </div> 
             :
             <div className="estimate-container">
@@ -56,10 +56,12 @@ class BuyDetails extends React.Component<{getUserTransactions:any,user:any,histo
                                 {
                                     <>
                                       <div className="label">
-                                          Purchase of {e.amount} {e.transactiondetails[0].from_cur} from {e.userdetails[0].name}
+                                          Purchase of {e.amount} {e.transactiondetails[0].from_cur} 
+                                          <p>From {e.userdetails[0].name}</p>
+                                          <p className="sub">{timeAgo.format(new Date(e.created))}</p>
                                       </div>
                                       <div className="value">
-                                          <ThemedButton text={e.status!=5?'Pending':'completed'} onPress={()=>{}} type={e.status!=5?'highlight':'primary'}/>  
+                                          <ThemedButton text={e.status!=5?'Pending':'done'} onPress={()=>{}} type={e.status!=5?'highlight':'primary'}/>  
                                       </div>
                                     </>
                                 }

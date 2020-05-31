@@ -29,6 +29,7 @@
     cursor: pointer;
     font-weight: 300;
     width: auto;
+    padding-left: 0px 2px;
     &.profile {
         padding: 0px 5px;
         a{
@@ -41,4 +42,9 @@
 .logo-link{
     color: #ec153f;
     text-decoration: none
+}
+
+.sideOptions{
+    display: flex;
+    justify-content: space-between;
 }

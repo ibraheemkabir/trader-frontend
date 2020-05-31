@@ -59,11 +59,11 @@ export function BuyContainer (props:any){
     return(
         <div className="buy-container">
             <div className="tabs">
-                <p className={!active ? 'inActive' :'active'} onClick={handlePress}>Quick Buy</p>
+                <p className={!active ? 'inActive' :'active'} onClick={handlePress}>Buy Crypto</p>
                 <div className="TabdividerContainer">
                 <div className="btnDivider"></div>
                 </div>
-                <p className={active ? 'inActive' :'active'} onClick={handlePress}>Quick Sell</p>
+                <p className={active ? 'inActive' :'active'} onClick={handlePress}>Sell Crypto</p>
             </div>
             {
                 active ?

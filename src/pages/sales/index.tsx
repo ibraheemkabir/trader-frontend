@@ -5,7 +5,7 @@ import { RootState } from '../../redux/index';
 import { getAllAds,getAllSales } from '../../redux/modules/ads';
 import {TransactionTile} from '../../components/transactions/index';
 import {BuyContainer} from './../../components/buy';
-
+import {Loader} from '../../components/loader';
 class AdvertisementsPage extends React.Component<{loginUser:any,user:any,history:any,getAllSales: any,ads:any}>{
   state = { 
     user: null,
@@ -27,6 +27,9 @@ class AdvertisementsPage extends React.Component<{loginUser:any,user:any,history
             <div className="estimate-container" style={{display:height?'none':'block'}}>
                 <BuyContainer ad={()=>{}} user={this.props.user}/> 
             </div>
+          {            
+            this.props.ads.sales.loading && <Loader count={10}/>
+          }
           {
             !this.props.ads.sales.loading && 
             <TransactionTile ads={this.props.ads.sales.sales}  type={'sale'}/>

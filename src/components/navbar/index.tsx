@@ -8,6 +8,7 @@ export const Navbar = (props:any) => {
 
     var retrievedObject:any = localStorage.getItem('user');
         useEffect(() => {
+            console.log(props)
             if(retrievedObject){
                 dispatch({
                     type: 'user/LOGIN',
@@ -19,20 +20,17 @@ export const Navbar = (props:any) => {
     return(
         <div className="nav-container sideLinks" onClick={()=>props.handleSideBar()}>
             <p className="logo">
-               <Link to={"/dashboard"} className="logo-link"> LOCALBIT </Link>
+               <Link to={"/dashboard"} className="logo-link"> PeerCoin </Link>
             </p>
             <div className="auth-section">
                 {
-                    props.user.name === ''
+                    !props.user.user.name
                     ? 
-                    <> 
+                    <div className="sideOptions"> 
                         <p className="sideLinks">
                             LOGIN
                         </p>
-                        <p className="sideLinks">
-                            SIGNUP
-                        </p>
-                    </>
+                    </div>
                     :
                     <>
                     <p></p>

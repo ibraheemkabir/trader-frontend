@@ -1,25 +1,12 @@
+import TimeAgo from 'javascript-time-ago';
  
 // Load locale-specific relative date/time formatting rules.
+import en from 'javascript-time-ago/locale/en';
+ 
+export const util = '';
 
-
-export function timeSince(date:number){
-
-    var seconds = Math.floor(((new Date().getTime()/1000) - date)),
-    interval = Math.floor(seconds / 31536000);
-
-    if (interval > 1) return interval + "y";
-
-    interval = Math.floor(seconds / 2592000);
-    if (interval > 1) return interval + "m";
-
-    interval = Math.floor(seconds / 86400);
-    if (interval >= 1) return interval + "d";
-
-    interval = Math.floor(seconds / 3600);
-    if (interval >= 1) return interval + "h";
-
-    interval = Math.floor(seconds / 60);
-    if (interval > 1) return interval + "m ";
-
-    return Math.floor(seconds) + "s";
-}
+// Add locale-specific relative date/time formatting rules.
+TimeAgo.addLocale(en)
+ 
+// Create relative date/time formatter.
+export const timeAgo = new TimeAgo('en-US')

@@ -12,7 +12,7 @@
 
 .headerText{
     text-align: start;
-    font-size: 18px;
+    font-size: 14px;
     margin: 0px 3%;
     font-weight: 600;
 }
@@ -54,7 +54,6 @@ a{
 
 .details-container{
     margin-bottom: 5px;
-    padding: 1rem 3rem 1rem 0rem;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -80,8 +79,12 @@ a{
         font-weight: 600;
         font-size: 12.5px;
         letter-spacing: 0.5px;
-        margin-bottom: 10px;
         margin-top: 20px;
+        .sub{
+            margin-bottom: 0px;
+            color: #cec8c8;
+            font-size: 12px;
+        }
     }
     .value{
         margin-top: 7px;
@@ -89,6 +92,9 @@ a{
         flex: 1 1;
         justify-content: end;
         font-size: 13px;
+        text-align: center;
+        vertical-align: middle;
+        margin: 30px 0px;
         img{
             font-size: 3px;
             width: 10px;
@@ -158,6 +164,9 @@ a{
     text-align: center;
     .value{
         text-align: start;
+        text-align: center;
+        vertical-align: middle;
+        margin: 30px 0px;
     }
 }
 

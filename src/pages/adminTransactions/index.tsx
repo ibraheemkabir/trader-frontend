@@ -48,7 +48,6 @@ class BuyDetails extends React.Component<{getUserTransactions:any,user:any,getRe
   }
 
   async componentWillMount(){
-    console.log(this.props.user,'HHYYUIIOO')
       await this.props.getRequests(this.props.user.unifyreId)
       await this.props.getUserTransactions(this.props.user._id)
       await this.props.getRequests(this.props.user.unifyreId)      
@@ -84,7 +83,7 @@ class BuyDetails extends React.Component<{getUserTransactions:any,user:any,getRe
                                           <span>Purchase of {e.amount} {e.transactiondetails[0].from_cur} by {e.userdetails[0].name}</span>
                                       </div>
                                       <div className="value">
-                                          <TagLabel text={this.manageStatus(e.status)} type={e.status==5?'complete':'incomplete'}/>
+                                          <TagLabel text={this.manageStatus(e.status)} type={e.status==5?'done':'pending'}/>
                                       </div>
                                     </>
                                 }
@@ -108,11 +107,12 @@ class BuyDetails extends React.Component<{getUserTransactions:any,user:any,getRe
                                     <>
                                       <div className="label">
                                           <span>Purchase of {e.amount} {e.transactiondetails[0].from_cur} from {e.userdetails[0].name}</span>
+                                          <p>{e.created}</p>
                                       </div>
                                       <div className="value labels">
                                         <TagLabel text={this.manageStatus(e.status)} type={e.status==5?'complete':'incomplete'}/>
                                       </div>
-                                    </>
+                                    </> 
                                 }
                             </div> 
                           </Link>

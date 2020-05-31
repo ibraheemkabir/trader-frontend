@@ -215,7 +215,19 @@ export function transactionsReducer(
         }
       }
     case 'requests/FAILURE':
+      return {
+        ...state,
+        requests: {
+          loading: false,
+          data: action.payload
+        }
+      }
     case 'transactions/FAILURE':
+      return { 
+        ...state,
+        transactions: [],
+        loading: false
+      };
     default:
       return state;
   }
